@@ -1,3 +1,4 @@
+# frozen_string_literal: false
 # Inlined rack app using yahns server (git clone git://yhbt.net/yahns.git)
 # Usage: yahns -c /path/to/this/file.conf.rb
 # There is no separate config.ru file for this example,

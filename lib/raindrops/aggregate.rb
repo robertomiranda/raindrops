@@ -1,4 +1,5 @@
 # -*- encoding: binary -*-
+# frozen_string_literal: false
 #
 # raindrops may use the {aggregate}[https://github.com/josephruscio/aggregate]
 # RubyGem to aggregate statistics from TCP_Info lookups.

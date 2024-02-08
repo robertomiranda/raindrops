@@ -1,3 +1,4 @@
+# frozen_string_literal: false
 def ipv6_enabled?
   tmp = TCPServer.new(ENV["TEST_HOST6"] || '::1', 0)
   tmp.close

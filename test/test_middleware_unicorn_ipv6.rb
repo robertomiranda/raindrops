@@ -1,4 +1,5 @@
 # -*- encoding: binary -*-
+# frozen_string_literal: false
 require "./test/rack_unicorn"
 require "./test/ipv6_enabled"
 $stderr.sync = $stdout.sync = true

@@ -1,4 +1,5 @@
 # -*- encoding: binary -*-
+# frozen_string_literal: false
 require "tempfile"
 require "aggregate"
 require "posix_mq"

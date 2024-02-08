@@ -1,4 +1,5 @@
 # -*- encoding: binary -*-
+# frozen_string_literal: false
 # :stopdoc:
 # This class is used by Raindrops::Middleware to proxy application
 # response bodies.  There should be no need to use it directly.

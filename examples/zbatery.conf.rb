@@ -1,3 +1,4 @@
+# frozen_string_literal: false
 # Used for running Raindrops::Watcher, which requires a multi-threaded
 # Rack server capable of streaming a response.  Threads must be used,
 # so any multi-threaded Rack server may be used.

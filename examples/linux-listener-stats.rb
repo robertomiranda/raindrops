@@ -1,5 +1,6 @@
 #!/usr/bin/ruby
 # -*- encoding: binary -*-
+# frozen_string_literal: false
 $stdout.sync = $stderr.sync = true
 # this is used to show or watch the number of active and queued
 # connections on any listener socket from the command line

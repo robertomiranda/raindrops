@@ -1,3 +1,4 @@
+# frozen_string_literal: false
 # This is a snippet of the config that powers
 # https://yhbt.net/raindrops-demo/
 # This may be used with the packaged zbatery.conf.rb

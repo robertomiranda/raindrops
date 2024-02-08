@@ -1,3 +1,4 @@
+# frozen_string_literal: false
 begin
   require 'aggregate'
   have_aggregate = true

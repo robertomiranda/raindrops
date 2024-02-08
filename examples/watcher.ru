@@ -1,3 +1,4 @@
+# frozen_string_literal: false
 # Sample standalone Rack application, recommended use is with Zbatery
 # See zbatery.conf.rb
 require "raindrops"

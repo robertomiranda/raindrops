@@ -1,4 +1,5 @@
 # -*- encoding: binary -*-
+# frozen_string_literal: false
 
 # For reporting TCP ListenStats, users of older \Linux kernels need to ensure
 # that the the "inet_diag" and "tcp_diag" kernel modules are loaded as they do

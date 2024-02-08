@@ -1,4 +1,5 @@
 # -*- encoding: binary -*-
+# frozen_string_literal: false
 require "./test/rack_unicorn"
 require 'test/unit'
 require 'socket'

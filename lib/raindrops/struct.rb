@@ -1,4 +1,5 @@
 # -*- encoding: binary -*-
+# frozen_string_literal: false
 
 # This is a wrapper around Raindrops objects much like the core Ruby
 # \Struct can be seen as a wrapper around the core \Array class.

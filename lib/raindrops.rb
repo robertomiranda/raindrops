@@ -1,4 +1,5 @@
 # -*- encoding: binary -*-
+# frozen_string_literal: false
 #
 # Each Raindrops object is a container that holds several counters.
 # It is internally a page-aligned, shared memory area that allows
