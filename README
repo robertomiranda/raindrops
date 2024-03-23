@@ -99,3 +99,13 @@ Mail archives are available over HTTP(S), IMAP(S) and NNTP(S):
 
 Since archives are public, scrub sensitive information and
 use anonymity tools such as Tor or Mixmaster if you deem necessary.
+
+There is NO WARRANTY whatsoever if anything goes wrong and
+no commercial support will ever be provided by the amateur maintainer.
+raindrops hackers are NOT responsible for your supply chain security:
+read and understand it yourself or get someone you trust to audit it.
+Malicious commits and releases will be made if under duress.  The only
+defense you'll ever have is from reviewing the source code.
+
+No user or contributor will ever be expected to sacrifice their own
+security by running JavaScript or revealing any personal information.
