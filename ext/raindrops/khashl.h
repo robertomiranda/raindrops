@@ -164,9 +164,8 @@ static kh_inline khint_t __kh_h2b(khint_t hash, khint_t bits) { return hash * 26
 		if (!new_used) return -1; /* not enough memory */ \
 		n_buckets = h->keys? (khint_t)1U<<h->bits : 0U; \
 		if (n_buckets < new_n_buckets) { /* expand */ \
-			khkey_t *new_keys = (khkey_t*)krealloc((void*)h->keys, new_n_buckets * sizeof(khkey_t)); \
-			if (!new_keys) { kfree(new_used); return -1; } \
-			h->keys = new_keys; \
+			h->keys = ruby_xrealloc2(h->keys, new_n_buckets, \
+						sizeof(khkey_t)); \
 		} /* otherwise shrink */ \
 		new_mask = new_n_buckets - 1; \
 		for (j = 0; j != n_buckets; ++j) { \
@@ -189,7 +188,8 @@ static kh_inline khint_t __kh_h2b(khint_t hash, khint_t bits) { return hash * 26
 			} \
 		} \
 		if (n_buckets > new_n_buckets) /* shrink the hash table */ \
-			h->keys = (khkey_t*)krealloc((void *)h->keys, new_n_buckets * sizeof(khkey_t)); \
+			h->keys = ruby_xrealloc2(h->keys, new_n_buckets, \
+						sizeof(khkey_t)); \
 		kfree(h->used); /* free the working space */ \
 		h->used = new_used, h->bits = new_bits; \
 		return 0; \

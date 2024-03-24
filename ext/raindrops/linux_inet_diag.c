@@ -53,10 +53,10 @@ struct listen_stats {
 	uint32_t listener_p;
 };
 
-/* override khashl.h defaults */
+/* override khashl.h defaults, these run w/o GVL */
 #define kcalloc(N,Z) xcalloc(N,Z)
 #define kmalloc(Z) xmalloc(Z)
-#define krealloc(P,Z) xrealloc(P,Z)
+#define krealloc(P,Z) abort() /* never called, we use ruby_xrealloc2 */
 #define kfree(P) xfree(P)
 
 #include "khashl.h"
