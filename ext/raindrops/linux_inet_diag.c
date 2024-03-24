@@ -208,7 +208,9 @@ static struct listen_stats *stats_for(addr2stats *a2s, struct inet_diag_msg *r)
 		break;
 		}
 	default:
-		assert(0 && "unsupported address family, could that be IPv7?!");
+		fprintf(stderr, "unsupported .idiag_family: %u\n",
+			(unsigned)r->idiag_family);
+		return NULL; /* can't raise w/o GVL */
 	}
 	if (!inet_ntop(r->idiag_family, src, host, hostlen)) {
 		bug_warn_nogvl("BUG: inet_ntop: %s\n", strerror(errno));
@@ -228,7 +230,8 @@ static struct listen_stats *stats_for(addr2stats *a2s, struct inet_diag_msg *r)
 		port = host + hostlen + 2;
 		break;
 	default:
-		assert(0 && "unsupported address family, could that be IPv7?!");
+		assert(0 && "should never get here (returned above)");
+		abort();
 	}
 
 	n = snprintf(port, portlen, "%u", ntohs(r->id.idiag_sport));
@@ -278,12 +281,14 @@ static struct listen_stats *stats_for(addr2stats *a2s, struct inet_diag_msg *r)
 static void table_incr_active(addr2stats *a2s, struct inet_diag_msg *r)
 {
 	struct listen_stats *stats = stats_for(a2s, r);
+	if (!stats) return;
 	++stats->active;
 }
 
 static void table_set_queued(addr2stats *a2s, struct inet_diag_msg *r)
 {
 	struct listen_stats *stats = stats_for(a2s, r);
+	if (!stats) return;
 	stats->listener_p = 1;
 	stats->queued += r->idiag_rqueue;
 }
