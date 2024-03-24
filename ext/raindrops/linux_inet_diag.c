@@ -159,7 +159,6 @@ static int st_to_hash(st_data_t key, st_data_t value, VALUE hash)
 		VALUE k = remove_scope_id((const char *)key);
 		VALUE v = rb_listen_stats(stats);
 
-		OBJ_FREEZE(k);
 		rb_hash_aset(hash, k, v);
 	}
 	return st_free_data(key, value, 0);
@@ -174,7 +173,6 @@ static int st_AND_hash(st_data_t key, st_data_t value, VALUE hash)
 
 		if (rb_hash_lookup(hash, k) == Qtrue) {
 			VALUE v = rb_listen_stats(stats);
-			OBJ_FREEZE(k);
 			rb_hash_aset(hash, k, v);
 		}
 	}
